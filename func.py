@@ -123,7 +123,6 @@ def chat_content_exec(update, context):
                 r.append("{}_chat_content".format(chat_id), text)
             r.incrby("{}_total_message_amount".format(chat_id))
             r.hincrby("{}_user_message_amount".format(chat_id), name)
-            r.hincrby("{}_userid_message_amount".format(chat_id), user_id)
         print("---------------------------")
     except Exception as e:
         print(e)
