@@ -1,4 +1,4 @@
-TOKEN = "1749418611:AAGOV2XB5mkMXqX-J_wtNu7KkrkhO_Xylmg"
+TOKEN = "1776586615:AAFWGqlT8YNplGMFThQvpsX2qW-0ctx8UmY"
 
 # 频率限制次数，每个群每小时内，只能主动触发10次任务
 LIMIT_COUNT = 10
@@ -7,4 +7,4 @@ LIMIT_COUNT = 10
 EXCLUSIVE_MODE = 0
 
 # 主动触发命令仅管理员有效  0:否     1:是
-RANK_COMMAND_MODE = 1
+RANK_COMMAND_MODE = 0
