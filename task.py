@@ -103,7 +103,6 @@ def generate(group):
 
     # 获取发言用户数
     user_amount = len(r.hkeys("{}_user_message_amount".format(group)))
-    userid_amount = len(r.hkeys("{}_userid_message_amount".format(group)))
     # 获取所有用户发言数字典
     user_message_amount = r.hgetall("{}_user_message_amount".format(group))
     user_message_amount = sorted(user_message_amount.items(), key=lambda kv: (int(kv[1])), reverse=True)
@@ -137,14 +136,13 @@ def generate(group):
                 text="🎤 今日品云榜 🎤\n"
                      "📅 {}\n"
                      "⏱ 截至今天{}\n"
-                     "🗣️ 本群{}个花里胡哨的ID以及真实的{}位水逼共产生{}条发言\n"
+                     "🗣️ 本群{}个花里胡哨id的水逼共产生{}条发言\n"
                      "🤹‍ 大家今天讨论最多的是：\n\n"
                      "{}\n"
                      "看下你有没有兴趣参与品云击剑大会? 👏".format(
                     time.strftime("%Y年%m月%d日", time.localtime()),
                     time.strftime("%H:%M", time.localtime()),
                     user_amount,
-                    userid_amount,
                     total_message_amount,
                     hot_word_string),
                 parse_mode="Markdown"
