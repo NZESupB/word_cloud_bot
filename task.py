@@ -103,7 +103,6 @@ def generate(group):
 
     # 获取发言用户数
     user_amount = len(r.hkeys("{}_user_message_amount".format(group)))
-    userid_amount = len(r.hkeys("{}_userid_message_amount".format(group)))
     # 获取所有用户发言数字典
     user_message_amount = r.hgetall("{}_user_message_amount".format(group))
     user_message_amount = sorted(user_message_amount.items(), key=lambda kv: (int(kv[1])), reverse=True)
@@ -137,7 +136,7 @@ def generate(group):
                 text="🎤 本周大佬榜 🎤\n"
                      "📅 {}\n"
                      "⏱ 截至今天{}\n"
-                     "🗣️ 本群{}个华丽呼哨的ID以及真实的{}位大佬共产生{}条发言\n"
+                     "🗣️ 本群{}个华丽呼哨的ID的大佬共产生{}条发言\n"
                      "🤹‍ 大家今天讨论最多的是：\n\n"
                      "{}\n"
                      "看下有没有你感兴趣的话题? 👏".format(
