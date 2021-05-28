@@ -160,7 +160,7 @@ def generate(group):
         # 默认展示前5位，少于5个则全部展示
         for i in range(min(5, len(user_message_amount))):
             dis_name = str(user_message_amount[i][0])
-            top_5_user += "\t\t\t\t\t\t\t\t" + "🎖`" + dis_name[:min(8, len(dis_name))] + "`" + " 贡献: " + str(
+            top_5_user += "\t\t\t\t\t\t\t\t" + "🎖`" + dis_name + "`" + " 贡献: " + str(
                 user_message_amount[i][1]) + "\n"
         # print(top_5_user)
         bot.send_message(
