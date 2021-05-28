@@ -15,7 +15,7 @@ def start(update, context):
         connector.get_connection().keys()
         print('进入start函数')
         update.message.reply_text(
-            '在呢！系统运行正常~',
+            '在呢！本大爷很正常,别打扰我了',
         )
     except Exception as e:
         print(e)
@@ -67,11 +67,11 @@ def rank(update, context):
             r.expireat("{}_frequency_limit".format(chat_id), ex_time)
         count = int(r.get("{}_frequency_limit".format(chat_id)))
         if count > LIMIT_COUNT:
-            update.message.reply_text("该群组在这个小时内的生成配额已经用完，请稍后再试~")
+            update.message.reply_text("都点了那么多次了还点,hy附体了")
             return
         add_task(chat_id)
         print("群组: {}，用户: {}|{} 发起了主动触发请求".format(chat_id, username, user_id, ))
-        update.message.reply_text("统计数据将在分析完毕后发送到当前群组，请稍等~")
+        update.message.reply_text("品云的水逼们,准备好击剑了吗,要来了~")
     except Exception as e:
         print("主动触发任务失败，请检查")
         print(e)
@@ -103,10 +103,10 @@ def chat_content_exec(update, context):
         lastname = str(user["last_name"])
         name = ""
         if firstname != "None":
-            name = firstname + " "
-        if lastname != "None":
-            name += lastname
-        if len(name) == 0:
+            name = firstname
+        elif lastname != "None":
+            name = lastname
+        elif len(name) == 0:
             name = username
         print("\n---------------------------")
         print("内容: " + text[:10])
@@ -123,6 +123,7 @@ def chat_content_exec(update, context):
                 r.append("{}_chat_content".format(chat_id), text)
             r.incrby("{}_total_message_amount".format(chat_id))
             r.hincrby("{}_user_message_amount".format(chat_id), name)
+            r.hincrby("{}_userid_message_amount".format(chat_id), user_id)
         print("---------------------------")
     except Exception as e:
         print(e)
