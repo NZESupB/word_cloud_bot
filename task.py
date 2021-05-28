@@ -189,12 +189,10 @@ def generate(group):
         w.generate(string)
         # 将词云图片导出到当前文件夹
         w.to_file('{}_chat_word_cloud.png'.format(group))
-        print("已生成图片")
         bot.send_photo(
             chat_id=group,
             photo=open("{}_chat_word_cloud.png".format(group), "rb")
         )
-        print("已发送图片")
         os.remove("{}_chat_word_cloud.png".format(group))
     except Exception as e:
         print(e)
