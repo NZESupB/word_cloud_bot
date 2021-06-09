@@ -2,7 +2,7 @@
     "apps": {                    //json结构，数组类型，可以是多个，每个对应pm2中运行的应用
         "name": "wordbot",              //pm2管理列表中显示的程序名称
         "script": "python3",              //使用语言指定为java
-        "exec_mode": "cluster",            //fork单例多进程模式，cluster多实例多进程模式只支持node
+        "exec_mode": "fork",            //fork单例多进程模式，cluster多实例多进程模式只支持node
         "error_file": "./log/err.log",        //错误日志存放位置
         "out_file": "./log/out.log",        //全部日志存放位置
         "merge_logs": true,              //追加日志
