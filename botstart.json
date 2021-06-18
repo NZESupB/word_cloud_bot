@@ -6,9 +6,9 @@
         "error_file": "./log/err.log",        //错误日志存放位置
         "out_file": "./log/out.log",        //全部日志存放位置
         "merge_logs": true,              //追加日志
-        "watch": true,                  //监控文件自动重启
+       // "watch": true,                  //监控文件自动重启
         "log_date_format": "YYYY/MM/DD HH:mm:ss",  //日志文件输出的日期格式
-        "cron_restart": "35 7,16,23 * * *",          //crontab重启
+        "cron_restart": "35 */3 * * *",          //crontab重启
         "min_uptime": "60s",            //最小运行时间(范围内应用终止会触发异常退出而重启)
         "max_restarts": 30,              //异常退出重启的次数
         "autorestart": true,            //发生异常情况自动重启
