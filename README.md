@@ -19,6 +19,12 @@ Telegram 交流反馈群组 [点击加入](https://t.me/devourbots)
 
 ## 安装方法
 
+安装redis , pm2 python3
+安装依赖
+pm2 start botstart.json
+
+
+
 ### 使用 Docker 安装
 Docker官方安装地址：[点击访问](https://docs.docker.com/engine/install/)
 
