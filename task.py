@@ -72,9 +72,12 @@ def generate(group):
     r = connector.get_connection()
     print("当前处理的群组：" + str(group))
     # 生成词云图片
+    print("启动paddle")
     jieba.enable_paddle()  # 启动paddle模式。 0.40版之后开始支持，早期版本不支持
+    print("paddle启动完成")
     chat_content = r.get("{}_chat_content".format(group))
 
+    print("查找数据")
     if chat_content is None:
         print("数据库中不存在此群组数据")
         try:
