@@ -92,7 +92,8 @@ def generate(group):
     
     word_list = []
     words = pseg.cut(chat_content, use_paddle=True)  # paddle模式
-    print("准备分析{}").format(words)
+    print("准备分析")
+    print(words)
     for word, flag in words:
         # print(word + "\t" + flag)
         if flag in ["n", "nr", "nz", "PER", "f", "ns", "LOC", "s", "nt", "ORG", "nw"]:
