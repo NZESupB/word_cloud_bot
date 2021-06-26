@@ -71,7 +71,7 @@ def rank(update, context):
             return
         add_task(chat_id)
         print("群组: {}，用户: {}|{} 发起了主动触发请求".format(chat_id, username, user_id, ))
-        update.message.reply_text("品云的水逼们,准备好击剑了吗,要来了~")
+        update.message.reply_text("你们这些水逼们,准备好击剑了吗,要来了~")
     except Exception as e:
         print("主动触发任务失败，请检查")
         print(e)
