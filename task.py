@@ -97,6 +97,7 @@ def generate(group):
         # print(word_list)
 
     # 获取消息总数
+    print("获取数据库消息中.")
     total_message_amount = r.get("{}_total_message_amount".format(group))
 
     # print("总发言数: " + total_message_amount)
@@ -107,6 +108,7 @@ def generate(group):
     user_message_amount = r.hgetall("{}_user_message_amount".format(group))
     user_message_amount = sorted(user_message_amount.items(), key=lambda kv: (int(kv[1])), reverse=True)
 
+    print("分析数据中.")
     if len(word_list) > 0:
         # 分析高频词
         word_amount = {}
@@ -133,13 +135,13 @@ def generate(group):
             # print(hot_word_string)
             bot.send_message(
                 chat_id=group,
-                text="🎤 今日品云榜 🎤\n"
+                text="🎤 今日话题榜 🎤\n"
                      "📅 {}\n"
                      "⏱ 截至今天{}\n"
                      "🗣️ 本群{}个花里胡哨id的水逼共产生{}条发言\n"
                      "🤹‍ 大家今天讨论最多的是：\n\n"
                      "{}\n"
-                     "看下你有没有兴趣参与品云击剑大会? 👏".format(
+                     "看下你有没有兴趣参与本群同性击剑大会? 👏".format(
                     time.strftime("%Y年%m月%d日", time.localtime()),
                     time.strftime("%H:%M", time.localtime()),
                     user_amount,
@@ -166,7 +168,7 @@ def generate(group):
         # print(top_5_user)
         bot.send_message(
             chat_id=group,
-            text="🏵 品云剑客排行榜 🏵\n"
+            text="🏵 本群剑客排行榜 🏵\n"
                  "📅 {}\n"
                  "⏱ 截至今天{}\n\n"
                  "{}\n"
@@ -185,6 +187,7 @@ def generate(group):
 
     try:
         string = " ".join(word_list)
+        print("准备生成图片")
         # 将string变量传入w的generate()方法，给词云输入文字
         w.generate(string)
         # 将词云图片导出到当前文件夹
