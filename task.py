@@ -89,16 +89,17 @@ def generate(group):
         except Exception as e:
             print("群组: {} | 机器人发送信息失败".format(group))
         return
-    print("准备分析")
+    
     word_list = []
+    print("准备分析")
     words = pseg.cut(chat_content, use_paddle=True)  # paddle模式
     for word, flag in words:
-        print(word + "\t" + flag)
+        # print(word + "\t" + flag)
         if flag in ["n", "nr", "nz", "PER", "f", "ns", "LOC", "s", "nt", "ORG", "nw"]:
             # 判断该词是否有效，不为空格
             if re.match(r"^\s+?$", word) is None:
                 word_list.append(word)
-        print(word_list)
+        # print(word_list)
 
     # 获取消息总数
     print("获取数据库消息中.")
