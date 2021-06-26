@@ -89,6 +89,7 @@ def generate(group):
         except Exception as e:
             print("群组: {} | 机器人发送信息失败".format(group))
         return
+    print("准备分析")
     word_list = []
     words = pseg.cut(chat_content, use_paddle=True)  # paddle模式
     for word, flag in words:
