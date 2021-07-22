@@ -65,8 +65,8 @@ def generate(group):
     # 构建并配置词云对象w，注意要加scale参数，提高清晰度
     w = wordcloud.WordCloud(width=800,
                             height=800,
-                            background_color='white',
-                            font_path='/root/word_cloud_bot/font.ttf',
+                            background_color='None', #while白色
+                            font_path='/root/word_cloud_bot/LXGWWenKaiMono-Regular.ttf',
                             mask=mk,
                             scale=5)
     r = connector.get_connection()
