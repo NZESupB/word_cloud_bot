@@ -14,7 +14,7 @@
         "autorestart": true,            //发生异常情况自动重启
         "restart_delay": "60",            //异常重启的延时重启时间
         "args": [                  //传递给脚本的java参数，有顺序限制
-            "main.py",            //执行参数之执行文件名
+            "main.py"            //执行参数之执行文件名
         ]
     }
 }
